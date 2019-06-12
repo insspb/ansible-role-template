@@ -1,4 +1,4 @@
-## Development information
+# Development information
 
 - You are free to add any pool request. All request will be answered in timely manner.
 - If you want to made any contribution, but do not know where to start - check issues.
