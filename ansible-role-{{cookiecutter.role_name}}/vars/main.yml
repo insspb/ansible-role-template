@@ -1,2 +1,2 @@
 ---
-# vars file for ansible-template
+# vars file for {{ cookiecutter.role_name }}
