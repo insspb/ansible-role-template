@@ -1,6 +1,8 @@
 {
     "role_name": "new_ansible_role",
-    "license" : ["MIT", "Apache", "BSD-3", "GPLv3"],
+    "license" : ["MIT", "Apache", "LGPLv3", "GPLv3", "Unlicensed"],
+    "copyright_year": "2019",
+    "copyright_full_name": "New Developer",
     "author_name" : "New Developer <developer@example.com>",
     "author_github_login": "developer",
     "docker_privileged": "true",
