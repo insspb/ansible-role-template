@@ -22,6 +22,14 @@ pip install cookiecutter
 cookiecutter https://github.com/insspb/ansible-role-template
 ```
 
+## Overtesting note
+
+You may notice that in tox configuration we are using a lot of python versions and do the same. Basically this needed just to ensure that local testing will not fail on wrong python version installed. All tests do the same.  
+
+From the other side this approach can make fail-positive travis or tox fails if some dependency package cannot be launched in some python version. For example that's why python 3.8 support was [dropped](https://github.com/insspb/ansible-role-template/commit/f9785bb017236260182e7e02e80bb368a08707f0), while this version still in development mode.
+
+You may also notice that we run tox from tox. This behavior is needed to ensure that template config is correct and installed template will work from scratch without any issues.
+
 ## yamllint note
 
 yamllint check is one of requirements to get high ansible galaxy role score. This project has strict yamllint configuration. You can make work easier be adding this set of rules:
