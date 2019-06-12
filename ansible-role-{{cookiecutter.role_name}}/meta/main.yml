@@ -3,7 +3,7 @@ galaxy_info:
   author: {{ cookiecutter.author_name }}
   description: {{ cookiecutter.role_description }}
   company: {{ cookiecutter.company_name }}
-  
+
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
   issue_tracker_url: {{ cookiecutter.issue_tracker_url }}
