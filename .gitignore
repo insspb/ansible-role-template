@@ -2,3 +2,4 @@ venv
 .venv
 .tox
 .vscode
+XDG_CACHE_HOME

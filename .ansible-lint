@@ -1,0 +1,9 @@
+exclude_paths:
+ - .travis.yml
+ - ./molecule/
+ - venv/
+ - ./venv/
+ - .tox/
+ - .vscode/
+use_default_rules: true
+verbosity: 1
