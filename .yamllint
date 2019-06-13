@@ -6,6 +6,7 @@ ignore: |
   .tox/
   .venv/
   .vscode/
+  ansible-role-{{cookiecutter.role_name}}/
 
 rules:
   braces:
