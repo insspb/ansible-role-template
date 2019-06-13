@@ -4,16 +4,77 @@ dependency:
 driver:
   name: docker
 lint:
-  name: yamllint
+  name: {{ cookiecutter.lint_name }}
 platforms:
-  - name: instance
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest
+{%- if cookiecutter.install_CentOS_6 == "true" %}
+  - name: CentOS-6
+    image: {{ cookiecutter.centos_6_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_CentOS_7 == "true" %}
+  - name: CentOS-7
+    image: {{ cookiecutter.centos_7_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_debian_8 == "true" %}
+  - name: Debian-8
+    image: {{ cookiecutter.debian_8_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_debian_9 == "true" %}
+  - name: Debian-9
+    image: {{ cookiecutter.debian_9_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_debian_10 == "true" %}
+  - name: Debian-10
+    image: {{ cookiecutter.debian_10_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_ubuntu_1604 == "true" %}
+  - name: Ubuntu-1604
+    image: {{ cookiecutter.ubuntu_1604_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
+{%- if cookiecutter.install_ubuntu_1804 == "true" %}
+  - name: Ubuntu-1804
+    image: {{ cookiecutter.ubuntu_1804_image }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: {{ cookiecutter.docker_privileged }}
+    pre_build_image: False
+{%- endif %}
+
 provisioner:
-  name: ansible
+  name: {{ cookiecutter.provisioner_name }}
   lint:
-    name: ansible-lint
+    name: {{ cookiecutter.provisioner_lint_name }}
 verifier:
-  name: testinfra
+  name: {{ cookiecutter.verifier_name }}
   directory: ../resources/tests/
   lint:
-    name: flake8
+    name: {{ cookiecutter.verifier_lint_name }}
